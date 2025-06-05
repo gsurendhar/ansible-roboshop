@@ -1,0 +1,35 @@
+- name: Rabiitmq Setup
+  become: yes
+  hosts: rabbitmq
+  vars_prompt:
+    name: RABBITMQ_PASSWORD
+    prompt: Please Enter Rabbitmq roboshop Password 
+    private: true
+    
+  tasks:
+  - name : copy rabbitmq repo
+    ansible.builtin.file:
+      src: rabbitmq.repo
+      dest: /etc/yum.repos.d/rabbitmq.repo
+  
+  - name: install rabbitmq server
+    ansible.builtin.package:
+      name: rabbitmq-server
+      state: present
+
+  - name : Start and Enable rabbitmq service
+    ansible.builtin.service:
+      name: rabbitmq-server
+      state: started
+      enabled: yes
+
+  - name: adding user and permissions
+    community.rabbitmq.rabbitmq_user:
+      user: roboshop
+      password: "{{ RABBITMQ_PASSWORD }}"
+      permissions:
+        - vhost: /
+          configure_priv: .*
+          read_priv: .*
+          write_priv: .*
+      state: present
