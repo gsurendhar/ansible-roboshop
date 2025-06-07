@@ -8,7 +8,7 @@
     
   tasks:
   - name : copy rabbitmq repo
-    ansible.builtin.file:
+    ansible.builtin.copy:
       src: rabbitmq.repo
       dest: /etc/yum.repos.d/rabbitmq.repo
   
