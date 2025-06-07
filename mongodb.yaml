@@ -1,5 +1,5 @@
 - name: Configuring Mongodb Component
-  hosts: Mongodb
+  hosts: mongodb
   become: yes
   tasks:
 
