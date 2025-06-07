@@ -52,7 +52,7 @@
 
   - name: Daemon reloading
     ansible.builtin.systemd_service:
-    daemon-reload: yes
+      daemon-reload: yes
 
   - name: Start and Enable Shipping Service
     ansible.builtin.service:
