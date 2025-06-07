@@ -8,6 +8,7 @@
     - redis
     - user
     - cart
+    - frontend
     # - mysql
     # - shipping
     # - rabbitmq
