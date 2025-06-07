@@ -12,6 +12,14 @@
       name: maven
       state: present
 
+  - name: install PyMySQL and cryptography 
+    ansible.builtin.pip:
+      name: "{{ item }}"
+      executable: pip3.9
+    loop:
+    - cryptography
+    - PyMySQL
+
   - name: Create /app directory
     ansible.builtin.file:
       path: /app
@@ -72,11 +80,29 @@
   #   - /app/db/app-user.sql 
   #   - /app/db/master-data.sql
 
-  - name: loading the data into mysql
+  # - name: loading the data into mysql
+  #   community.mysql.mysql_db:
+  #     name: all
+  #     login_user: root
+  #     login_password: "{{ MYSQL_ROOT_PASSWORD }}"
+  #     login_host: mysql.gonela.site
+  #     state: import
+  #     target: "{{ item }}"
+  #   loop:
+  #   - /app/db/schema.sql
+  #   - /app/db/app-user.sql
+  #   - /app/db/master-data.sql
+
+
+
+
+    - name: import data
+    tags:
+    - import
     community.mysql.mysql_db:
       name: all
       login_user: root
-      login_password: "{{ MYSQL_ROOT_PASSWORD }}"
+      login_password: RoboShop@1
       login_host: mysql.gonela.site
       state: import
       target: "{{ item }}"
