@@ -21,7 +21,7 @@
       name: roboshop
       home: /app
       shell: /sbin/nologin
-      System: yes
+      system: yes
 
   - name: Download the payment code
     ansible.builtin.get_url:
