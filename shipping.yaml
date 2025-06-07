@@ -96,7 +96,7 @@
 
 
 
-    - name: import data
+  - name: import data
     tags:
     - import
     community.mysql.mysql_db:
