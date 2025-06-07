@@ -67,7 +67,7 @@
 
   - name: loading the data into mysql
     ansible.builtin.command: mysql -h mysql.gonela.site -uroot -p"{{MYSQL_ROOT_PASSWORD}}" < "{{ item }}"
-    loops:
+    loop:
     - /app/db/schema.sql
     - /app/db/app-user.sql 
     - /app/db/master-data.sql
