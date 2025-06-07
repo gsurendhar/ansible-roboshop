@@ -31,11 +31,13 @@
       remote_src: yes
 
   - name: Install dependencies 
-    ansible.builtin.command: "{{ item }}"
-    loop:
-    - "go mod init dispatch"
-    - "go get"
-    - "go build"
+    ansible.builtin.command: go mod init dispatch
+
+  - name: Install dependencies 
+    ansible.builtin.command: go get
+
+  - name: Install dependencies 
+    ansible.builtin.command: go build
 
   - name: Copy dispatch service file
     ansible.builtin.copy:
