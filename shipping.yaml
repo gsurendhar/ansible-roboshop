@@ -2,9 +2,9 @@
   become: yes
   hosts: shipping
   vars_prompt:
-    name: MYSQL_ROOT_PASSWORD
-    prompt: Please Enter Mysql Root password
-    private: true
+    - name: MYSQL_ROOT_PASSWORD
+      prompt: Please Enter Mysql Root password
+      private: true
 
   tasks:
   - name: installing maven and java
