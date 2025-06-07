@@ -13,12 +13,6 @@
       name: nginx
       state: present
 
-  # - name: Start and enable nginx
-  #   ansible.builtin.service:
-  #     name: nginx
-  #     state: started
-  #     enabled: yes
-
   - name: Download the frontend code
     ansible.builtin.get_url:
       url: https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip
@@ -49,6 +43,12 @@
     ansible.builtin.copy:
       src: nginx.conf
       dest: /etc/nginx/nginx.conf
+  
+  - name: Start and enable nginx
+    ansible.builtin.service:
+      name: nginx
+      state: started
+      enabled: yes
 
   - name: restart nginx
     ansible.builtin.service:
