@@ -9,10 +9,10 @@
     - user
     - cart
     - frontend
-    # - mysql
-    # - shipping
-    # - rabbitmq
-    # - payment
+    - mysql
+    - shipping
+    - rabbitmq
+    - payment
 
     subnet_id: subnet-06ba738b9ac9e2009
     sg_id: sg-09842cd2938898ff3
