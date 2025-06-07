@@ -29,9 +29,10 @@
       src: /tmp/dispatch.zip
       dest: /app
       remote_src: yes
+
   - name: Install dependencies 
     ansible.builtin.command: go "{{ item }}"
-    loops:
+    loop:
     - mod init dispatch
     - get 
     - build
