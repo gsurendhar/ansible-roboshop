@@ -2,10 +2,10 @@
   hosts: catalogue
   become: yes
   tasks:
-  - name: Disabling Default NodeJs 
+  - name: Disabling Default NodeJs -y
     ansible.builtin.command: dnf module disable nodejs
 
-  - name: Enabling NodeJs Version 20
+  - name: Enabling NodeJs Version 20 -y
     ansible.builtin.command: dnf module enable nodejs:20
 
   - name: Install NodeJs:20
