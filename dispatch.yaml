@@ -33,9 +33,9 @@
   - name: Install dependencies 
     ansible.builtin.command: go "{{ item }}"
     loop:
-    - mod init dispatch
-    - get 
-    - build
+    - "mod init dispatch"
+    - "get"
+    - "build"
 
   - name: Copy dispatch service file
     ansible.builtin.copy:
