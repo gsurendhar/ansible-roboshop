@@ -65,25 +65,25 @@
       name: mysql
       state: present
 
-  - name: loading the data into mysql
-    ansible.builtin.command: mysql -h mysql.gonela.site -uroot -p"{{MYSQL_ROOT_PASSWORD}}" < "{{ item }}"
-    loop:
-    - /app/db/schema.sql
-    - /app/db/app-user.sql 
-    - /app/db/master-data.sql
-
   # - name: loading the data into mysql
-  #   community.mysql.mysql_db:
-  #     name: all
-  #     login_user: root
-  #     login_password: "{{ MYSQL_ROOT_PASSWORD }}"
-  #     login_host: mysql.gonela.site
-  #     state: import
-  #     target: "{{ item }}"
+  #   ansible.builtin.command: mysql -h mysql.gonela.site -uroot -p"{{MYSQL_ROOT_PASSWORD}}" < "{{ item }}"
   #   loop:
   #   - /app/db/schema.sql
-  #   - /app/db/app-user.sql
+  #   - /app/db/app-user.sql 
   #   - /app/db/master-data.sql
+
+  - name: loading the data into mysql
+    community.mysql.mysql_db:
+      name: all
+      login_user: root
+      login_password: "{{ MYSQL_ROOT_PASSWORD }}"
+      login_host: mysql.gonela.site
+      state: import
+      target: "{{ item }}"
+    loop:
+    - /app/db/schema.sql
+    - /app/db/app-user.sql
+    - /app/db/master-data.sql
   
   - name: restart shipping
     ansible.builtin.service:
