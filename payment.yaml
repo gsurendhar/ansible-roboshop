@@ -2,7 +2,7 @@
   become: yes
   hosts: payment 
   tasks:
-  - name: installing {{ item }}
+  - name: " installing {{ item }} "
     ansible.builtin.package:
       name: "{{ item }}"
       state: present
