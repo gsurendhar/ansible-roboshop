@@ -9,11 +9,11 @@
     - user
     - cart
     - frontend
-    - mysql
-    - shipping
-    - rabbitmq
-    - payment
-    - dispatch
+    # - mysql
+    # - shipping
+    # - rabbitmq
+    # - payment
+    # - dispatch
     
 
     subnet_id: subnet-06ba738b9ac9e2009
