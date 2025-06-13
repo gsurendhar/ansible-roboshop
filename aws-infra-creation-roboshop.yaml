@@ -4,11 +4,11 @@
   vars:
     instances:
     - mongodb
-    - catalogue
-    - redis
-    - user
-    - cart
-    - frontend
+    # - catalogue
+    # - redis
+    # - user
+    # - cart
+    # - frontend
     # - mysql
     # - shipping
     # - rabbitmq
